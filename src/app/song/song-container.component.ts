@@ -72,6 +72,20 @@ export class SongContainerComponent implements OnInit, OnDestroy {
     }
 
     async ngOnInit() {
+          // sticky  script
+          window.onscroll = function() {myAllVideo()};
+
+          var videoSticky = document.getElementById("myVideo");
+          var sticky = videoSticky.offsetTop;
+          
+          function myAllVideo() {
+            if (window.pageYOffset > sticky) {
+              videoSticky.classList.add("sticky");
+            } else {
+              videoSticky.classList.remove("sticky");
+            }
+          }
+          // end sticky script
         this.globals.section = Section.Song;
         let attributeSelector  = 'name="description"';
         this.meta.removeTag(attributeSelector);
